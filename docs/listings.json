@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-27T20:09:15.242371+00:00",
+  "updated": "2026-07-27T21:21:19.540280+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -38,7 +38,7 @@
     {
       "id": "29834998",
       "name": "For Holidays and special",
-      "subtitle": "For Holidays and special",
+      "subtitle": "Lake access and a BBQ in central Riga",
       "price": 115.0,
       "price_label": "€115 for 1 night",
       "rating": null,
@@ -50,7 +50,7 @@
     {
       "id": "1097657424995560828",
       "name": "VW Rocket",
-      "subtitle": "Restored VW Westfalia with boho interior",
+      "subtitle": "VW Rocket",
       "price": 137.0,
       "price_label": "€137 for 1 night",
       "rating": null,
