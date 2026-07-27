@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-27T12:26:34.092996+00:00",
+  "updated": "2026-07-27T12:27:09.927926+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -15,7 +15,7 @@
       56.9496,
       24.1052
     ],
-    "radius_km": 3,
+    "radius_km": 8,
     "exclude_keywords": [
       "camping",
       "tent",
@@ -26,14 +26,38 @@
     {
       "id": "1481269698808965145",
       "name": "Family bedroom in heart of Riga",
-      "subtitle": "Stylish décor in the heart of Riga",
-      "price": 183.0,
-      "price_label": "€183 for 1 night",
+      "subtitle": "Family bedroom in heart of Riga",
+      "price": 189.0,
+      "price_label": "€189 total",
       "rating": null,
       "url": "https://www.airbnb.com/rooms/1481269698808965145?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.94796,
       "lng": 24.11867,
       "distance_km": 0.8
+    },
+    {
+      "id": "29834998",
+      "name": "For Holidays and special",
+      "subtitle": "For Holidays and special",
+      "price": 118.0,
+      "price_label": "€118 total",
+      "rating": null,
+      "url": "https://www.airbnb.com/rooms/29834998?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 57.0014,
+      "lng": 24.1218,
+      "distance_km": 5.8
+    },
+    {
+      "id": "1097657424995560828",
+      "name": "VW Rocket",
+      "subtitle": "VW Rocket",
+      "price": 142.0,
+      "price_label": "€142 total",
+      "rating": null,
+      "url": "https://www.airbnb.com/rooms/1097657424995560828?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9034,
+      "lng": 24.14787,
+      "distance_km": 5.8
     }
   ]
 }
