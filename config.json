@@ -1,0 +1,11 @@
+{
+  "place": "Riga--Latvia",
+  "place_label": "Riga",
+  "checkin": "2026-07-29",
+  "checkout": "2026-07-30",
+  "adults": 4,
+  "max_price": 300,
+  "currency": "EUR",
+  "pages": 3,
+  "price_drop_pct": 10
+}

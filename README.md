@@ -1,0 +1,102 @@
+# Airbnb Watcher — Riga
+
+Checks Airbnb every 30 minutes for stays matching your criteria and sends a
+WhatsApp message when something **new or newly-cheaper** shows up.
+
+- **Runs on** GitHub Actions (the cron scheduler — GitHub Pages can't run code)
+- **Publishes to** GitHub Pages (a live dashboard of current matches)
+- **Notifies via** CallMeBot → WhatsApp
+- **Cost** €0
+
+Current watch (`config.json`): **Riga**, 29 → 30 July 2026, 4 guests, under **€300 total**.
+
+---
+
+## Setup
+
+### 1. Push to GitHub
+
+```bash
+gh repo create airbnb-watcher --private --source=. --push
+```
+
+### 2. Get your CallMeBot key (~2 min)
+
+1. Save **+34 644 51 95 23** to your phone as a contact.
+2. WhatsApp it exactly: `I allow callmebot to send me messages`
+3. It replies with your personal API key.
+
+### 3. Add the secrets
+
+Repo → **Settings → Secrets and variables → Actions → New repository secret**:
+
+| Name | Value |
+|---|---|
+| `WHATSAPP_PHONE` | your number with country code, e.g. `+37120123456` |
+| `CALLMEBOT_APIKEY` | the key CallMeBot sent you |
+
+### 4. Turn on Pages
+
+Repo → **Settings → Pages → Source: GitHub Actions**.
+
+### 5. Kick it off
+
+Repo → **Actions → Airbnb watcher → Run workflow**.
+
+The **first run stays silent** — it records what's already listed so you don't
+get the whole city in one message. Tick *"Send WhatsApp even if this is the
+first run"* if you want that initial dump anyway.
+
+Your dashboard lands at `https://<you>.github.io/airbnb-watcher/`.
+
+---
+
+## Tuning
+
+Edit `config.json`:
+
+| Key | Meaning |
+|---|---|
+| `place` | Airbnb URL slug, e.g. `Riga--Latvia`, `Tallinn--Estonia` |
+| `checkin` / `checkout` | `YYYY-MM-DD` |
+| `adults` | guest count |
+| `max_price` | **total** for the whole stay, not per night |
+| `pages` | pages to scan (18 listings each) |
+| `price_drop_pct` | re-notify when a known listing falls this much (default 10%) |
+
+Change the cadence via the `cron` line in `.github/workflows/watch.yml`.
+
+---
+
+## How it works
+
+```
+watch.yml (cron)
+  └─ main.py
+       ├─ scraper.py  → parses the JSON Airbnb embeds in its own search page
+       ├─ diff vs state.json  → only new or ≥10% cheaper listings
+       ├─ notify.py   → CallMeBot → WhatsApp
+       └─ docs/listings.json → committed → Pages dashboard
+```
+
+`state.json` is committed back after each run — that's the memory of what
+you've already been told about.
+
+---
+
+## Caveats worth knowing
+
+- **Airbnb has no public API.** This parses the JSON embedded in their search
+  page. It works today; if Airbnb changes their markup it will need a fix. The
+  workflow fails soft (logs a warning, exits 0) rather than spamming you with
+  red builds.
+- **Datacenter IPs get bot-checked.** GitHub runners are Azure IPs and Airbnb
+  sometimes serves a challenge instead of results. Expect occasional skipped
+  runs. If it becomes constant, route through a scraper API with residential
+  proxies (Apify/ScraperAPI) — only `scraper._fetch_page` needs changing.
+- **Scraping is against Airbnb's ToS.** This is low-volume personal use, but
+  that's the tradeoff you're making.
+- **GitHub cron is best-effort** — `*/30` often means 30–60 minutes in practice.
+- **CallMeBot is a free hobby service** with no delivery guarantee. `notify.py`
+  retries 3×; if all fail, the run fails loudly and those listings are *not*
+  marked as seen, so the next run retries them.

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riga Airbnb Watcher</title>
+<style>
+  :root {
+    --bg: #fbfbfa; --card: #fff; --ink: #1a1a19; --muted: #6b6b68;
+    --line: #e6e5e2; --accent: #d93b60; --good: #0f7b53;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121211; --card: #1c1c1b; --ink: #f2f1ee; --muted: #9a9a95;
+      --line: #2e2e2c; --accent: #ff6b8a; --good: #4ade80;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2rem 1.25rem 4rem; background: var(--bg); color: var(--ink);
+    font: 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; margin: 0 0 .35rem; letter-spacing: -.02em; }
+  .sub { color: var(--muted); font-size: .92rem; margin: 0 0 1.75rem; }
+  .stats { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.5rem; }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: .6rem .9rem; min-width: 96px;
+  }
+  .stat b { display: block; font-size: 1.35rem; letter-spacing: -.02em; }
+  .stat span { color: var(--muted); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; }
+  ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
+  li {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: .9rem 1rem; display: flex; align-items: center; gap: 1rem;
+  }
+  li a { color: inherit; text-decoration: none; font-weight: 550; }
+  li a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  .price { font-size: 1.2rem; font-weight: 650; color: var(--good); white-space: nowrap; min-width: 68px; }
+  .meta { color: var(--muted); font-size: .82rem; margin-top: .15rem; }
+  .empty, .error { color: var(--muted); text-align: center; padding: 3rem 1rem; }
+  .error { color: var(--accent); }
+  footer { margin-top: 2.5rem; color: var(--muted); font-size: .8rem; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Riga Airbnb Watcher</h1>
+  <p class="sub" id="sub">Loading…</p>
+  <div class="stats" id="stats"></div>
+  <ul id="list"></ul>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const euro = n => "€" + Number(n).toFixed(0);
+
+fetch("listings.json?t=" + Date.now())
+  .then(r => { if (!r.ok) throw new Error("listings.json not found"); return r.json(); })
+  .then(data => {
+    const { config: c, listings: rows, updated } = data;
+
+    document.getElementById("sub").textContent =
+      `${c.checkin} → ${c.checkout} · ${c.adults} guests · under ${euro(c.max_price)} total`;
+
+    const prices = rows.map(r => r.price).filter(p => p != null);
+    const stats = [
+      ["Matches", rows.length],
+      ["Cheapest", prices.length ? euro(Math.min(...prices)) : "—"],
+      ["Median", prices.length ? euro(prices.sort((a, b) => a - b)[prices.length >> 1]) : "—"],
+    ];
+    document.getElementById("stats").innerHTML = stats
+      .map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
+
+    document.getElementById("list").innerHTML = rows.length
+      ? rows.map(r => `
+          <li>
+            <div class="price">${r.price != null ? euro(r.price) : "—"}</div>
+            <div>
+              <a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a>
+              <div class="meta">${r.rating ? "⭐ " + escapeHtml(r.rating) : "No reviews yet"}</div>
+            </div>
+          </li>`).join("")
+      : `<div class="empty">No listings matched on the last run.</div>`;
+
+    document.getElementById("foot").textContent =
+      "Last checked " + new Date(updated).toLocaleString();
+  })
+  .catch(err => {
+    document.getElementById("sub").textContent = "";
+    document.getElementById("list").innerHTML =
+      `<div class="error">${escapeHtml(err.message)} — the watcher may not have run yet.</div>`;
+  });
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, ch =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+}
+</script>
+</body>
+</html>

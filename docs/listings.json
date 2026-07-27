@@ -1,0 +1,148 @@
+{
+  "updated": "2026-07-27T11:51:10.959885+00:00",
+  "config": {
+    "place": "Riga--Latvia",
+    "place_label": "Riga",
+    "checkin": "2026-07-29",
+    "checkout": "2026-07-30",
+    "adults": 4,
+    "max_price": 300,
+    "currency": "EUR",
+    "pages": 3,
+    "price_drop_pct": 10
+  },
+  "listings": [
+    {
+      "id": "19007775",
+      "name": "post-industrial beach, sauna & camping",
+      "subtitle": "post-industrial beach, sauna & camping",
+      "price": 39.0,
+      "price_label": "€39 total",
+      "rating": "4.27 (26)",
+      "url": "https://www.airbnb.com/rooms/19007775?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.96593,
+      "lng": 24.07825
+    },
+    {
+      "id": "34151686",
+      "name": "post-industrial camping, beach & sauna",
+      "subtitle": "post-industrial camping, beach & sauna",
+      "price": 39.0,
+      "price_label": "€39 total",
+      "rating": "4.94 (16)",
+      "url": "https://www.airbnb.com/rooms/34151686?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9643,
+      "lng": 24.08056
+    },
+    {
+      "id": "36220291",
+      "name": "post-industrial sauna, camping & beach",
+      "subtitle": "post-industrial sauna, camping & beach",
+      "price": 39.0,
+      "price_label": "€39 total",
+      "rating": "4.73 (22)",
+      "url": "https://www.airbnb.com/rooms/36220291?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.96335,
+      "lng": 24.0789
+    },
+    {
+      "id": "1544155068002738089",
+      "name": "Sunny and warm",
+      "subtitle": "Sunny and warm",
+      "price": 65.0,
+      "price_label": "€65 total",
+      "rating": "5.0 (29)",
+      "url": "https://www.airbnb.com/rooms/1544155068002738089?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9015,
+      "lng": 24.0954
+    },
+    {
+      "id": "1444860176126127705",
+      "name": "Jacob Residence | Loft Old Riga",
+      "subtitle": "Jacob Residence | Loft Old Riga",
+      "price": 88.0,
+      "price_label": "€88 total, originally €189",
+      "rating": "4.72 (61)",
+      "url": "https://www.airbnb.com/rooms/1444860176126127705?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9503,
+      "lng": 24.1051
+    },
+    {
+      "id": "891016489822613159",
+      "name": "Stabu Residence - Room 2",
+      "subtitle": "Stabu Residence - Room 2",
+      "price": 88.0,
+      "price_label": "€88 total",
+      "rating": "4.9 (41)",
+      "url": "https://www.airbnb.com/rooms/891016489822613159?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9547,
+      "lng": 24.1322
+    },
+    {
+      "id": "50714025",
+      "name": "Livu Square Apartment in Riga Old Town",
+      "subtitle": "Livu Square Apartment in Riga Old Town",
+      "price": 89.0,
+      "price_label": "€89 total, originally €120",
+      "rating": "4.75 (383)",
+      "url": "https://www.airbnb.com/rooms/50714025?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.94876,
+      "lng": 24.10993
+    },
+    {
+      "id": "8437835",
+      "name": "Midcentury modern, quiet, 40m studio with bath",
+      "subtitle": "Midcentury modern, quiet, 40m studio with bath",
+      "price": 101.0,
+      "price_label": "€101 total, originally €126",
+      "rating": "5.0 (28)",
+      "url": "https://www.airbnb.com/rooms/8437835?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.95176,
+      "lng": 24.13666
+    },
+    {
+      "id": "29834998",
+      "name": "For Holidays and special",
+      "subtitle": "For Holidays and special",
+      "price": 118.0,
+      "price_label": "€118 total",
+      "rating": null,
+      "url": "https://www.airbnb.com/rooms/29834998?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 57.0014,
+      "lng": 24.1218
+    },
+    {
+      "id": "1097657424995560828",
+      "name": "VW Rocket",
+      "subtitle": "VW Rocket",
+      "price": 142.0,
+      "price_label": "€142 total",
+      "rating": null,
+      "url": "https://www.airbnb.com/rooms/1097657424995560828?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9034,
+      "lng": 24.14787
+    },
+    {
+      "id": "41137589",
+      "name": "Charming 2 bedroom apartment, best location, 76m²",
+      "subtitle": "Charming 2 bedroom apartment, best location, 76m²",
+      "price": 150.0,
+      "price_label": "€150 total, originally €183",
+      "rating": "4.88 (220)",
+      "url": "https://www.airbnb.com/rooms/41137589?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.96021,
+      "lng": 24.11326
+    },
+    {
+      "id": "1481269698808965145",
+      "name": "Family bedroom in heart of Riga",
+      "subtitle": "Family bedroom in heart of Riga",
+      "price": 189.0,
+      "price_label": "€189 total",
+      "rating": null,
+      "url": "https://www.airbnb.com/rooms/1481269698808965145?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.94796,
+      "lng": 24.11867
+    }
+  ]
+}

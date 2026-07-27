@@ -1,0 +1,62 @@
+name: Airbnb watcher
+
+on:
+  schedule:
+    # Every 30 minutes. GitHub queues cron jobs on a best-effort basis,
+    # so expect real intervals of 30-60 minutes under load.
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      notify_on_first_run:
+        description: "Send WhatsApp even if this is the first run"
+        type: boolean
+        default: false
+
+# Never let two runs race on state.json.
+concurrency:
+  group: airbnb-watcher
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Scrape and notify
+        env:
+          WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          NOTIFY_ON_FIRST_RUN: ${{ inputs.notify_on_first_run && '1' || '' }}
+        run: python main.py
+
+      - name: Persist state and dashboard data
+        run: |
+          git config user.name  "airbnb-watcher"
+          git config user.email "actions@github.com"
+          git add state.json docs/listings.json
+          git diff --staged --quiet || git commit -m "watch: refresh listings [skip ci]"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
