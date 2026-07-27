@@ -7,6 +7,7 @@ reverse-engineering their persisted-query GraphQL hashes.
 
 import base64
 import json
+import math
 import re
 import time
 import urllib.parse
@@ -32,8 +33,40 @@ STATE_RE = re.compile(
 PRICE_RE = re.compile(r"[\d,.]+")
 
 
+EARTH_RADIUS_KM = 6371
+
+
 class ScrapeError(RuntimeError):
     """Airbnb returned something we could not parse."""
+
+
+def haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlambda = math.radians(lng2 - lng1)
+    a = (
+        math.sin(dphi / 2) ** 2
+        + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
+    )
+    return 2 * EARTH_RADIUS_KM * math.asin(math.sqrt(a))
+
+
+def _bounding_box(lat: float, lng: float, radius_km: float) -> dict:
+    """Square box around a point, used to make Airbnb search the map area.
+
+    Without this Airbnb ranks across the whole municipality and buries central
+    listings under cheap ones by the beach.
+    """
+    dlat = radius_km / 110.574
+    dlng = radius_km / (111.320 * math.cos(math.radians(lat)))
+    return {
+        "sw_lat": round(lat - dlat, 6),
+        "sw_lng": round(lng - dlng, 6),
+        "ne_lat": round(lat + dlat, 6),
+        "ne_lng": round(lng + dlng, 6),
+        "search_by_map": "true",
+        "zoom": "14",
+    }
 
 
 def _cursor(items_offset: int) -> str:
@@ -154,10 +187,19 @@ def search(
     max_price: int,
     currency: str = "EUR",
     pages: int = 3,
+    center: tuple[float, float] | None = None,
+    radius_km: float | None = None,
+    exclude_keywords: list[str] | None = None,
 ) -> list[dict]:
-    """Return listings at or under max_price, cheapest first."""
+    """Return listings at or under max_price, nearest first.
+
+    When center/radius are given the search is constrained to that map area
+    *and* results are re-checked against the true distance, since Airbnb
+    happily returns listings outside the box it was handed.
+    """
     session = requests.Session()
     listings: dict[str, dict] = {}
+    excluded = [word.lower() for word in (exclude_keywords or [])]
 
     for page in range(pages):
         params = {
@@ -169,6 +211,8 @@ def search(
             "source": "structured_search_input_header",
             "search_type": "pagination" if page else "search_query",
         }
+        if center and radius_km:
+            params.update(_bounding_box(center[0], center[1], radius_km))
         if page:
             params["cursor"] = _cursor(page * 18)
 
@@ -177,14 +221,30 @@ def search(
         for result in _walk(state):
             found += 1
             listing = _normalise(result, checkin, checkout, adults)
+            if not listing or listing["price"] is None:
+                continue
             # Airbnb's price_max is advisory; enforce it ourselves.
-            if listing and listing["price"] is not None:
-                if listing["price"] <= max_price:
-                    listings[listing["id"]] = listing
+            if listing["price"] > max_price:
+                continue
+            if any(word in listing["name"].lower() for word in excluded):
+                continue
+
+            if center and listing["lat"] is not None:
+                distance = haversine_km(
+                    center[0], center[1], listing["lat"], listing["lng"]
+                )
+                if radius_km and distance > radius_km:
+                    continue
+                listing["distance_km"] = round(distance, 1)
+
+            listings[listing["id"]] = listing
 
         if found == 0:
             break
         if page + 1 < pages:
             time.sleep(2)  # be a polite scraper
 
-    return sorted(listings.values(), key=lambda item: item["price"])
+    return sorted(
+        listings.values(),
+        key=lambda item: (item.get("distance_km") or 0, item["price"]),
+    )

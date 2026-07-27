@@ -60,7 +60,8 @@ def format_listings(listings: list[dict], config: dict) -> str:
         f"🏠 {count} new Airbnb {'match' if count == 1 else 'matches'} in "
         f"{config['place_label']}\n"
         f"{config['checkin']} → {config['checkout']} · "
-        f"{config['adults']} guests · under €{config['max_price']}\n"
+        f"{config['adults']} guests · under €{config['max_price']}"
+        + (f" · within {config['radius_km']}km of centre\n" if config.get("radius_km") else "\n")
     )
 
     body = []
@@ -73,7 +74,11 @@ def format_listings(listings: list[dict], config: dict) -> str:
             price = f"€{listing['price']:.0f} 🔓 FREED UP"
         else:
             price = f"€{listing['price']:.0f}"
-        body.append(f"\n{price}{rating}\n{listing['name'][:60]}\n{listing['url']}")
+        distance = listing.get("distance_km")
+        where = f" · {distance}km from centre" if distance is not None else ""
+        body.append(
+            f"\n{price}{rating}{where}\n{listing['name'][:60]}\n{listing['url']}"
+        )
 
     tail = f"\n\n+{count - 8} more" if count > 8 else ""
     return head + "".join(body) + tail

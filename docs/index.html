@@ -62,7 +62,8 @@ fetch("listings.json?t=" + Date.now())
     const { config: c, listings: rows, updated } = data;
 
     document.getElementById("sub").textContent =
-      `${c.checkin} → ${c.checkout} · ${c.adults} guests · under ${euro(c.max_price)} total`;
+      `${c.checkin} → ${c.checkout} · ${c.adults} guests · under ${euro(c.max_price)} total`
+      + (c.radius_km ? ` · within ${c.radius_km} km of centre` : "");
 
     const prices = rows.map(r => r.price).filter(p => p != null);
     const stats = [
@@ -79,7 +80,10 @@ fetch("listings.json?t=" + Date.now())
             <div class="price">${r.price != null ? euro(r.price) : "—"}</div>
             <div>
               <a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a>
-              <div class="meta">${r.rating ? "⭐ " + escapeHtml(r.rating) : "No reviews yet"}</div>
+              <div class="meta">${[
+                r.rating ? "⭐ " + escapeHtml(r.rating) : "No reviews yet",
+                r.distance_km != null ? `${r.distance_km} km from centre` : null,
+              ].filter(Boolean).join(" · ")}</div>
             </div>
           </li>`).join("")
       : `<div class="empty">No listings matched on the last run.</div>`;

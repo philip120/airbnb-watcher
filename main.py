@@ -90,6 +90,9 @@ def main() -> int:
             max_price=config["max_price"],
             currency=config.get("currency", "EUR"),
             pages=config.get("pages", 3),
+            center=tuple(config["center"]) if config.get("center") else None,
+            radius_km=config.get("radius_km"),
+            exclude_keywords=config.get("exclude_keywords"),
         )
     except scraper.ScrapeError as exc:
         # A bot check is expected occasionally; fail soft so the cron keeps running.

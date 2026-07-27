@@ -7,5 +7,9 @@
   "max_price": 300,
   "currency": "EUR",
   "pages": 3,
-  "price_drop_pct": 10
+  "price_drop_pct": 10,
+  "reappear_after_misses": 2,
+  "center": [56.9496, 24.1052],
+  "radius_km": 3,
+  "exclude_keywords": ["camping", "tent", "campervan"]
 }
