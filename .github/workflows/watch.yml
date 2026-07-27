@@ -2,9 +2,9 @@ name: Airbnb watcher
 
 on:
   schedule:
-    # Every 30 minutes. GitHub queues cron jobs on a best-effort basis,
-    # so expect real intervals of 30-60 minutes under load.
-    - cron: "*/30 * * * *"
+    # Every 10 minutes — hunting cancellations, which get taken fast.
+    # GitHub queues cron on a best-effort basis, so expect 10-20 min in practice.
+    - cron: "*/10 * * * *"
   workflow_dispatch:
     inputs:
       notify_on_first_run:
