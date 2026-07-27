@@ -63,6 +63,7 @@ Edit `config.json`:
 | `max_price` | **total** for the whole stay, not per night |
 | `pages` | pages to scan (18 listings each) |
 | `price_drop_pct` | re-notify when a known listing falls this much (default 10%) |
+| `reappear_after_misses` | runs a listing must be absent before its return counts as a cancellation (default 2) |
 
 Change the cadence via the `cron` line in `.github/workflows/watch.yml`.
 
@@ -74,13 +75,26 @@ Change the cadence via the `cron` line in `.github/workflows/watch.yml`.
 watch.yml (cron)
   └─ main.py
        ├─ scraper.py  → parses the JSON Airbnb embeds in its own search page
-       ├─ diff vs state.json  → only new or ≥10% cheaper listings
+       ├─ diff vs state.json  → new, ≥10% cheaper, or freed-up listings
        ├─ notify.py   → CallMeBot → WhatsApp
        └─ docs/listings.json → committed → Pages dashboard
 ```
 
 `state.json` is committed back after each run — that's the memory of what
 you've already been told about.
+
+You get pinged in three cases, and never for the same thing twice:
+
+| Trigger | Message |
+|---|---|
+| Listing never seen before | `€89 ⭐4.75` |
+| Known listing drops ≥10% | `€180 → €120 📉` |
+| Listing was booked, then freed up | `€95 🔓 FREED UP` |
+
+The third is the one that matters when a city is sold out. A listing that
+disappears for 2+ consecutive runs and then returns is a **cancellation**. The
+2-run threshold exists because Airbnb rotates its results — a listing missing
+from a single run is search noise, not a booking.
 
 ---
 

@@ -67,11 +67,12 @@ def format_listings(listings: list[dict], config: dict) -> str:
     for listing in listings[:8]:
         rating = f" ⭐{listing['rating']}" if listing.get("rating") else ""
         was = listing.get("was")
-        price = (
-            f"€{was:.0f} → €{listing['price']:.0f} 📉"
-            if was
-            else f"€{listing['price']:.0f}"
-        )
+        if was:
+            price = f"€{was:.0f} → €{listing['price']:.0f} 📉"
+        elif listing.get("reappeared"):
+            price = f"€{listing['price']:.0f} 🔓 FREED UP"
+        else:
+            price = f"€{listing['price']:.0f}"
         body.append(f"\n{price}{rating}\n{listing['name'][:60]}\n{listing['url']}")
 
     tail = f"\n\n+{count - 8} more" if count > 8 else ""

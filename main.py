@@ -23,17 +23,34 @@ def load_config() -> dict:
     return config
 
 
-def load_seen() -> dict[str, float]:
-    """Map of listing id -> the price we last told you about."""
+def load_seen() -> dict[str, dict]:
+    """Map of listing id -> {price, misses}.
+
+    `misses` counts consecutive runs the listing was absent from results. A
+    listing that vanishes (booked) and later returns is a cancellation — the
+    single most valuable alert when a city is sold out.
+    """
     if not STATE_PATH.exists():
         return {}
     try:
-        return dict(json.loads(STATE_PATH.read_text()).get("seen", {}))
+        raw = json.loads(STATE_PATH.read_text()).get("seen", {})
     except (json.JSONDecodeError, AttributeError, TypeError, ValueError):
         return {}
 
+    seen = {}
+    for listing_id, value in dict(raw).items():
+        # Tolerate the older `id -> price` format.
+        if isinstance(value, dict):
+            seen[listing_id] = {
+                "price": value.get("price"),
+                "misses": int(value.get("misses", 0)),
+            }
+        else:
+            seen[listing_id] = {"price": value, "misses": 0}
+    return seen
 
-def save_seen(seen: dict[str, float]) -> None:
+
+def save_seen(seen: dict[str, dict]) -> None:
     STATE_PATH.write_text(
         json.dumps(
             {
@@ -84,17 +101,30 @@ def main() -> int:
 
     seen = load_seen()
     drop = config.get("price_drop_pct", 10) / 100
+    # Airbnb rotates results, so a single absent run is noise, not a booking.
+    # Requiring two consecutive misses filters that out.
+    absent_runs = config.get("reappear_after_misses", 2)
+    live = {item["id"] for item in listings}
 
     fresh = []
     for item in listings:
         previous = seen.get(item["id"])
         if previous is None:
             fresh.append(item)
-        elif item["price"] <= previous * (1 - drop):
-            # Already notified, but it gotten meaningfully cheaper — worth a ping.
-            fresh.append({**item, "was": previous})
+        elif previous["misses"] >= absent_runs:
+            fresh.append({**item, "reappeared": True})
+        elif previous["price"] and item["price"] <= previous["price"] * (1 - drop):
+            # Already notified, but it's gotten meaningfully cheaper — worth a ping.
+            fresh.append({**item, "was": previous["price"]})
 
-    current = {item["id"]: item["price"] for item in listings}
+    current = {item["id"]: {"price": item["price"], "misses": 0} for item in listings}
+    # Carry forward listings that dropped out, incrementing their absence.
+    for listing_id, previous in seen.items():
+        if listing_id not in live:
+            current[listing_id] = {
+                "price": previous["price"],
+                "misses": previous["misses"] + 1,
+            }
 
     # The first run would otherwise dump the entire city into your chat.
     if first_run and not os.environ.get("NOTIFY_ON_FIRST_RUN"):
