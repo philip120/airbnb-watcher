@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-27T12:17:10.590490+00:00",
+  "updated": "2026-07-27T12:17:53.126609+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -28,7 +28,7 @@
       "name": "Jacob Residence | Loft Old Riga",
       "subtitle": "Jacob Residence | Loft Old Riga",
       "price": 88.0,
-      "price_label": "€88 total, originally €189",
+      "price_label": "€88 for 1 night, originally €189",
       "rating": "4.72 (61)",
       "url": "https://www.airbnb.com/rooms/1444860176126127705?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.9503,
@@ -36,23 +36,35 @@
       "distance_km": 0.1
     },
     {
-      "id": "50714025",
-      "name": "Livu Square Apartment in Riga Old Town",
-      "subtitle": "Livu Square Apartment in Riga Old Town",
-      "price": 89.0,
-      "price_label": "€89 total, originally €120",
-      "rating": "4.75 (383)",
-      "url": "https://www.airbnb.com/rooms/50714025?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.94876,
-      "lng": 24.10993,
-      "distance_km": 0.3
+      "id": "572172118137614490",
+      "name": "Riga's Lookout",
+      "subtitle": "Two-floor loft overlooking Dome Square",
+      "price": 252.0,
+      "price_label": "€252 for 1 night, originally €272",
+      "rating": "4.91 (305)",
+      "url": "https://www.airbnb.com/rooms/572172118137614490?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9493,
+      "lng": 24.1071,
+      "distance_km": 0.1
+    },
+    {
+      "id": "1360080550835340581",
+      "name": "𖠁 Witch House Apartment with Fireplace 𖠁",
+      "subtitle": "Brick vaults and a wood-burning fireplace",
+      "price": 119.0,
+      "price_label": "€119 for 1 night",
+      "rating": "4.94 (18)",
+      "url": "https://www.airbnb.com/rooms/1360080550835340581?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.95163307988966,
+      "lng": 24.106117769038864,
+      "distance_km": 0.2
     },
     {
       "id": "1481269698808965145",
       "name": "Family bedroom in heart of Riga",
       "subtitle": "Family bedroom in heart of Riga",
-      "price": 189.0,
-      "price_label": "€189 total",
+      "price": 183.0,
+      "price_label": "€183 for 1 night",
       "rating": null,
       "url": "https://www.airbnb.com/rooms/1481269698808965145?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.94796,
@@ -64,7 +76,7 @@
       "name": "Charming 2 bedroom apartment, best location, 76m²",
       "subtitle": "Charming 2 bedroom apartment, best location, 76m²",
       "price": 150.0,
-      "price_label": "€150 total, originally €183",
+      "price_label": "€150 for 1 night, originally €183",
       "rating": "4.88 (220)",
       "url": "https://www.airbnb.com/rooms/41137589?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.96021,
@@ -76,7 +88,7 @@
       "name": "Stabu Residence - Room 2",
       "subtitle": "Stabu Residence - Room 2",
       "price": 88.0,
-      "price_label": "€88 total",
+      "price_label": "€88 for 1 night",
       "rating": "4.9 (41)",
       "url": "https://www.airbnb.com/rooms/891016489822613159?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.9547,
@@ -86,26 +98,14 @@
     {
       "id": "8437835",
       "name": "Midcentury modern, quiet, 40m studio with bath",
-      "subtitle": "Midcentury modern, quiet, 40m studio with bath",
+      "subtitle": "Quiet midcentury modern with a bathtub",
       "price": 101.0,
-      "price_label": "€101 total, originally €126",
+      "price_label": "€101 for 1 night, originally €126",
       "rating": "5.0 (28)",
       "url": "https://www.airbnb.com/rooms/8437835?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.95176,
       "lng": 24.13666,
       "distance_km": 1.9
-    },
-    {
-      "id": "1459283584848708736",
-      "name": "Rigas Center Suite",
-      "subtitle": "Rigas Center Suite",
-      "price": 81.0,
-      "price_label": "€81 total",
-      "rating": "4.98 (41)",
-      "url": "https://www.airbnb.com/rooms/1459283584848708736?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.9707,
-      "lng": 24.1322,
-      "distance_km": 2.9
     }
   ]
 }
