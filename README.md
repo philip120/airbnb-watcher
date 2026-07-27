@@ -64,6 +64,15 @@ Edit `config.json`:
 | `pages` | pages to scan (18 listings each) |
 | `price_drop_pct` | re-notify when a known listing falls this much (default 10%) |
 | `reappear_after_misses` | runs a listing must be absent before its return counts as a cancellation (default 2) |
+| `center` | `[lat, lng]` to search around — currently Vecrīga (Old Town) |
+| `radius_km` | how far from `center` to accept (default 3) |
+| `exclude_keywords` | drop listings whose title contains any of these (campsites, vans) |
+
+`center` + `radius_km` do double duty: they constrain Airbnb's search to that
+map box *and* re-check each result's true distance afterwards, because Airbnb
+returns listings outside the box it was given. Without the box, Airbnb ranks
+across the whole municipality and buries central flats under cheap beach
+campsites 6 km out.
 
 Change the cadence via the `cron` line in `.github/workflows/watch.yml`.
 
