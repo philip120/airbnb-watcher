@@ -129,6 +129,16 @@ def _normalise(result: dict, checkin: str, checkout: str, adults: int) -> dict |
     if not listing_id:
         return None
 
+    # Airbnb pads thin results with listings available on *neighbouring* dates.
+    # Those carry listingParamOverrides with their own checkin/checkout (and the
+    # displayed price belongs to those dates too). Anything overriding our dates
+    # is not a real match. A null override means the listing is free as asked.
+    overrides = result.get("listingParamOverrides") or {}
+    if overrides.get("checkin") and overrides["checkin"] != checkin:
+        return None
+    if overrides.get("checkout") and overrides["checkout"] != checkout:
+        return None
+
     amount, label = _parse_price(result.get("structuredDisplayPrice"))
     demand = result.get("demandStayListing") or {}
     coord = (demand.get("location") or {}).get("coordinate") or {}
