@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28T21:01:09.386185+00:00",
+  "updated": "2026-07-28T22:13:26.155547+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -27,8 +27,8 @@
       "id": "1457160944284571211",
       "name": "Charming Riga Old Town Apartment",
       "subtitle": "Charming Riga Old Town Apartment",
-      "price": 276.0,
-      "price_label": "€276 for 1 night",
+      "price": 185.0,
+      "price_label": "€185 for 1 night",
       "rating": "4.48 (21)",
       "url": "https://www.airbnb.com/rooms/1457160944284571211?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.9456,
@@ -58,18 +58,6 @@
       "lat": 56.95896211834425,
       "lng": 24.13576838818076,
       "distance_km": 2.1
-    },
-    {
-      "id": "1639349102066448280",
-      "name": "K⓶ Krāsotāju | by Dandelion Apartments & Suites",
-      "subtitle": "Quiet and modern with free parking",
-      "price": 167.0,
-      "price_label": "€167 for 1 night, originally €185",
-      "rating": "5.0 (19)",
-      "url": "https://www.airbnb.com/rooms/1639349102066448280?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.956,
-      "lng": 24.1467,
-      "distance_km": 2.6
     },
     {
       "id": "1097657424995560828",
