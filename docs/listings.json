@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-29T11:32:08.721314+00:00",
+  "updated": "2026-07-29T13:17:43.257874+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -24,21 +24,21 @@
   },
   "listings": [
     {
-      "id": "1739782930192723088",
-      "name": "Pretty good",
-      "subtitle": "Self check-in with AC and a washer",
-      "price": 135.0,
-      "price_label": "€135 for 1 night",
-      "rating": "New",
-      "url": "https://www.airbnb.com/rooms/1739782930192723088?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.9505,
-      "lng": 24.1026,
-      "distance_km": 0.2
+      "id": "1181708265369034247",
+      "name": "Old Riga Great Attic & Perfect Location |2BDR 70m2",
+      "subtitle": "Old Riga Great Attic & Perfect Location |2BDR 70m2",
+      "price": 194.0,
+      "price_label": "€194 for 1 night, originally €224",
+      "rating": "4.99 (218)",
+      "url": "https://www.airbnb.com/rooms/1181708265369034247?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.94861,
+      "lng": 24.10519,
+      "distance_km": 0.1
     },
     {
       "id": "1372354161882914253",
       "name": "Premier 2bd Old Town apartment",
-      "subtitle": "Open-concept living in Old Town Riga",
+      "subtitle": "Premier 2bd Old Town apartment",
       "price": 206.0,
       "price_label": "€206 for 1 night, originally €391",
       "rating": "4.88 (92)",
@@ -48,21 +48,9 @@
       "distance_km": 0.5
     },
     {
-      "id": "33125007",
-      "name": "Old Riga Kaleju Studio Apartment With Terrace",
-      "subtitle": "Old Riga Kaleju Studio Apartment With Terrace",
-      "price": 250.0,
-      "price_label": "€250 for 1 night",
-      "rating": "4.68 (22)",
-      "url": "https://www.airbnb.com/rooms/33125007?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.94509,
-      "lng": 24.11099,
-      "distance_km": 0.6
-    },
-    {
       "id": "1481269698808965145",
       "name": "Family bedroom in heart of Riga",
-      "subtitle": "Stylish décor in the heart of Riga",
+      "subtitle": "Family bedroom in heart of Riga",
       "price": 183.0,
       "price_label": "€183 for 1 night",
       "rating": null,
@@ -72,33 +60,21 @@
       "distance_km": 0.8
     },
     {
-      "id": "1089791519990579608",
-      "name": "Private Music Studio in Riga Center \"Anomalia\"",
-      "subtitle": "Private Music Studio in Riga Center \"Anomalia\"",
-      "price": 69.0,
-      "price_label": "€69 for 1 night, originally €93",
-      "rating": "5.0 (16)",
-      "url": "https://www.airbnb.com/rooms/1089791519990579608?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.96886,
-      "lng": 24.14919,
-      "distance_km": 3.4
-    },
-    {
-      "id": "22061774",
-      "name": "Sofia'S",
-      "subtitle": "Private entrance and a glass-walled park view",
-      "price": 240.0,
-      "price_label": "€240 for 1 night",
-      "rating": "4.87 (30)",
-      "url": "https://www.airbnb.com/rooms/22061774?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.93863,
-      "lng": 24.02948,
-      "distance_km": 4.8
+      "id": "1613885065903253489",
+      "name": "Families & Large Groups | 6 Bedrooms | 9 Guests",
+      "subtitle": "Families & Large Groups | 6 Bedrooms | 9 Guests",
+      "price": 289.0,
+      "price_label": "€289 for 1 night, originally €375",
+      "rating": "3.4 (5)",
+      "url": "https://www.airbnb.com/rooms/1613885065903253489?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9663700572577,
+      "lng": 24.130865339051404,
+      "distance_km": 2.4
     },
     {
       "id": "1097657424995560828",
       "name": "VW Rocket",
-      "subtitle": "Restored VW Westfalia with boho interior",
+      "subtitle": "VW Rocket",
       "price": 137.0,
       "price_label": "€137 for 1 night",
       "rating": null,
