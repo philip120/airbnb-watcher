@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28T23:15:42.600580+00:00",
+  "updated": "2026-07-29T00:09:28.936855+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -26,7 +26,7 @@
     {
       "id": "1457160944284571211",
       "name": "Charming Riga Old Town Apartment",
-      "subtitle": "Charming Riga Old Town Apartment",
+      "subtitle": "Bright Old Town flat on a calm street",
       "price": 185.0,
       "price_label": "€185 for 1 night",
       "rating": "4.48 (21)",
@@ -38,7 +38,7 @@
     {
       "id": "1481269698808965145",
       "name": "Family bedroom in heart of Riga",
-      "subtitle": "Stylish décor in the heart of Riga",
+      "subtitle": "Family bedroom in heart of Riga",
       "price": 183.0,
       "price_label": "€183 for 1 night",
       "rating": null,
@@ -48,21 +48,9 @@
       "distance_km": 0.8
     },
     {
-      "id": "1422395702766104920",
-      "name": "Families & Groups | 3 Bedrooms | Free Parking",
-      "subtitle": "Families & Groups | 3 Bedrooms | Free Parking",
-      "price": 284.0,
-      "price_label": "€284 for 1 night",
-      "rating": "4.9 (21)",
-      "url": "https://www.airbnb.com/rooms/1422395702766104920?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.95896211834425,
-      "lng": 24.13576838818076,
-      "distance_km": 2.1
-    },
-    {
       "id": "1097657424995560828",
       "name": "VW Rocket",
-      "subtitle": "VW Rocket",
+      "subtitle": "Restored VW Westfalia with boho interior",
       "price": 137.0,
       "price_label": "€137 for 1 night",
       "rating": null,
