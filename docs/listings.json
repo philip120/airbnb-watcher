@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-29T15:21:00.867846+00:00",
+  "updated": "2026-07-29T16:43:57.641236+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -24,21 +24,9 @@
   },
   "listings": [
     {
-      "id": "973585637256052663",
-      "name": "Old Riga Kaleju Cozy apartment",
-      "subtitle": "Stylish apartment in Old Riga",
-      "price": 191.0,
-      "price_label": "€191 for 1 night",
-      "rating": "4.65 (23)",
-      "url": "https://www.airbnb.com/rooms/973585637256052663?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.94615,
-      "lng": 24.11045,
-      "distance_km": 0.5
-    },
-    {
       "id": "1481269698808965145",
       "name": "Family bedroom in heart of Riga",
-      "subtitle": "Stylish décor in the heart of Riga",
+      "subtitle": "Family bedroom in heart of Riga",
       "price": 183.0,
       "price_label": "€183 for 1 night",
       "rating": null,
@@ -48,28 +36,28 @@
       "distance_km": 0.8
     },
     {
+      "id": "1415211492190275642",
+      "name": "Dzirnavu apartment, free private parking",
+      "subtitle": "Quiet embassy district with free parking",
+      "price": 212.0,
+      "price_label": "€212 for 1 night",
+      "rating": "4.98 (41)",
+      "url": "https://www.airbnb.com/rooms/1415211492190275642?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9554795224872,
+      "lng": 24.116247377802786,
+      "distance_km": 0.9
+    },
+    {
       "id": "1026574805019434212",
       "name": "One-Bedroom Family Apartment",
-      "subtitle": "Art Nouveau street near Riga’s center",
-      "price": 224.0,
-      "price_label": "€224 for 1 night, originally €258",
+      "subtitle": "One-Bedroom Family Apartment",
+      "price": 194.0,
+      "price_label": "€194 for 1 night, originally €258",
       "rating": "4.42 (24)",
       "url": "https://www.airbnb.com/rooms/1026574805019434212?check_in=2026-07-29&check_out=2026-07-30&adults=4",
       "lat": 56.94954,
       "lng": 24.12227,
       "distance_km": 1.0
-    },
-    {
-      "id": "40279242",
-      "name": "Two-Bedroom Apartment with Air conditioning",
-      "subtitle": "Open-plan living near Old Riga",
-      "price": 199.0,
-      "price_label": "€199 for 1 night",
-      "rating": "4.65 (37)",
-      "url": "https://www.airbnb.com/rooms/40279242?check_in=2026-07-29&check_out=2026-07-30&adults=4",
-      "lat": 56.94661,
-      "lng": 24.14245,
-      "distance_km": 2.3
     },
     {
       "id": "1097657424995560828",
