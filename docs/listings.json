@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-29T03:33:30.576688+00:00",
+  "updated": "2026-07-29T06:15:54.800043+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -48,9 +48,33 @@
       "distance_km": 0.8
     },
     {
+      "id": "1729099847963932401",
+      "name": "New Brick & Timber Loft 3BR for 6",
+      "subtitle": "Exposed brick and timber loft, top floor",
+      "price": 218.0,
+      "price_label": "€218 for 1 night",
+      "rating": "New",
+      "url": "https://www.airbnb.com/rooms/1729099847963932401?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9533,
+      "lng": 24.1239,
+      "distance_km": 1.2
+    },
+    {
+      "id": "963438464163284202",
+      "name": "Tina's city center apartment",
+      "subtitle": "Art Nouveau district with 2 free bikes",
+      "price": 208.0,
+      "price_label": "€208 for 1 night",
+      "rating": "4.91 (35)",
+      "url": "https://www.airbnb.com/rooms/963438464163284202?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.96051,
+      "lng": 24.1221,
+      "distance_km": 1.6
+    },
+    {
       "id": "1089791519990579608",
       "name": "Private Music Studio in Riga Center \"Anomalia\"",
-      "subtitle": "Pro music studio with park views",
+      "subtitle": "Private Music Studio in Riga Center \"Anomalia\"",
       "price": 96.0,
       "price_label": "€96 for 1 night",
       "rating": "5.0 (16)",
@@ -60,9 +84,21 @@
       "distance_km": 3.4
     },
     {
+      "id": "22061774",
+      "name": "Sofia'S",
+      "subtitle": "Sofia'S",
+      "price": 217.0,
+      "price_label": "€217 for 1 night",
+      "rating": "4.87 (30)",
+      "url": "https://www.airbnb.com/rooms/22061774?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.93863,
+      "lng": 24.02948,
+      "distance_km": 4.8
+    },
+    {
       "id": "1454171631256617456",
       "name": "Cozy apartment",
-      "subtitle": "Quiet courtyard views with free parking",
+      "subtitle": "Cozy apartment",
       "price": 70.0,
       "price_label": "€70 for 1 night",
       "rating": "4.67 (42)",
@@ -74,7 +110,7 @@
     {
       "id": "1097657424995560828",
       "name": "VW Rocket",
-      "subtitle": "VW Rocket",
+      "subtitle": "Restored VW Westfalia with boho interior",
       "price": 137.0,
       "price_label": "€137 for 1 night",
       "rating": null,
