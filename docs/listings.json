@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-29T09:09:33.773724+00:00",
+  "updated": "2026-07-29T11:32:08.721314+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -24,6 +24,42 @@
   },
   "listings": [
     {
+      "id": "1739782930192723088",
+      "name": "Pretty good",
+      "subtitle": "Self check-in with AC and a washer",
+      "price": 135.0,
+      "price_label": "€135 for 1 night",
+      "rating": "New",
+      "url": "https://www.airbnb.com/rooms/1739782930192723088?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9505,
+      "lng": 24.1026,
+      "distance_km": 0.2
+    },
+    {
+      "id": "1372354161882914253",
+      "name": "Premier 2bd Old Town apartment",
+      "subtitle": "Open-concept living in Old Town Riga",
+      "price": 206.0,
+      "price_label": "€206 for 1 night, originally €391",
+      "rating": "4.88 (92)",
+      "url": "https://www.airbnb.com/rooms/1372354161882914253?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9455,
+      "lng": 24.1098,
+      "distance_km": 0.5
+    },
+    {
+      "id": "33125007",
+      "name": "Old Riga Kaleju Studio Apartment With Terrace",
+      "subtitle": "Old Riga Kaleju Studio Apartment With Terrace",
+      "price": 250.0,
+      "price_label": "€250 for 1 night",
+      "rating": "4.68 (22)",
+      "url": "https://www.airbnb.com/rooms/33125007?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.94509,
+      "lng": 24.11099,
+      "distance_km": 0.6
+    },
+    {
       "id": "1481269698808965145",
       "name": "Family bedroom in heart of Riga",
       "subtitle": "Stylish décor in the heart of Riga",
@@ -38,7 +74,7 @@
     {
       "id": "1089791519990579608",
       "name": "Private Music Studio in Riga Center \"Anomalia\"",
-      "subtitle": "Pro music studio with park views",
+      "subtitle": "Private Music Studio in Riga Center \"Anomalia\"",
       "price": 69.0,
       "price_label": "€69 for 1 night, originally €93",
       "rating": "5.0 (16)",
