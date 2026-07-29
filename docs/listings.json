@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-29T00:09:28.936855+00:00",
+  "updated": "2026-07-29T03:33:30.576688+00:00",
   "config": {
     "place": "Riga--Latvia",
     "place_label": "Riga",
@@ -38,7 +38,7 @@
     {
       "id": "1481269698808965145",
       "name": "Family bedroom in heart of Riga",
-      "subtitle": "Family bedroom in heart of Riga",
+      "subtitle": "Stylish décor in the heart of Riga",
       "price": 183.0,
       "price_label": "€183 for 1 night",
       "rating": null,
@@ -48,9 +48,33 @@
       "distance_km": 0.8
     },
     {
+      "id": "1089791519990579608",
+      "name": "Private Music Studio in Riga Center \"Anomalia\"",
+      "subtitle": "Pro music studio with park views",
+      "price": 96.0,
+      "price_label": "€96 for 1 night",
+      "rating": "5.0 (16)",
+      "url": "https://www.airbnb.com/rooms/1089791519990579608?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.96886,
+      "lng": 24.14919,
+      "distance_km": 3.4
+    },
+    {
+      "id": "1454171631256617456",
+      "name": "Cozy apartment",
+      "subtitle": "Quiet courtyard views with free parking",
+      "price": 70.0,
+      "price_label": "€70 for 1 night",
+      "rating": "4.67 (42)",
+      "url": "https://www.airbnb.com/rooms/1454171631256617456?check_in=2026-07-29&check_out=2026-07-30&adults=4",
+      "lat": 56.9474,
+      "lng": 24.1981,
+      "distance_km": 5.6
+    },
+    {
       "id": "1097657424995560828",
       "name": "VW Rocket",
-      "subtitle": "Restored VW Westfalia with boho interior",
+      "subtitle": "VW Rocket",
       "price": 137.0,
       "price_label": "€137 for 1 night",
       "rating": null,
